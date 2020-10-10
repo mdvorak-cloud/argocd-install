@@ -6,4 +6,6 @@ connectors:
       clientID: 1e656b0e7778f9aa7803
       clientSecret: $dex.github.clientSecret
       orgs:
-        - name: mdvorak-iot
+        - name: mdvorak-cloud
+          teams:
+            - argocd-users
