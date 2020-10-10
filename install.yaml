@@ -2140,7 +2140,7 @@ data:
               teams:
                 - argocd-users
   repository.credentials: |
-    - url: git@github.com:mdvorak/nas-apps.git
+    - url: git@github.com:mdvorak-cloud/apps.git
       sshPrivateKeySecret:
         name: apps-git
         key: ssh-privatekey
