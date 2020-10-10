@@ -17,8 +17,8 @@ jobs:
       - name: Render install.yaml
         run: |
           kustomize build source/ > install.yaml
-      
+
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Commit install.yaml
+          commit_message: "[bot] Rendered install.yaml"
           file_pattern: install.yaml
