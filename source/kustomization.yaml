@@ -11,17 +11,19 @@ resources:
 configMapGenerator:
   - name: argocd-cm
     behavior: merge
-    files:
-      - repository.credentials=repository-credentials.yaml
-      - dex.config=dex-config.yaml
     literals:
       - admin.enabled=false
       - url=https://argocd.mdvorak.org
+    files:
+      - repository.credentials=repository-credentials.yaml
+      - dex.config=dex-config.yaml
 
   - name: argocd-rbac-cm
     behavior: merge
     literals:
       - policy.default=role:readonly
+    files:
+      - policy.csv
 
 patchesJson6902:
   - target:

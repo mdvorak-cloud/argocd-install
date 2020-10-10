@@ -1,0 +1,4 @@
+p, role:argocd-users, projects, get, *, allow
+p, role:argocd-users, applications, get, */*, allow
+p, role:argocd-users, applications, sync, */*, allow
+g, mdvorak-cloud:argocd-users, role:argocd-users
