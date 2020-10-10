@@ -2144,6 +2144,7 @@ data:
       sshPrivateKeySecret:
         name: apps-git
         key: ssh-privatekey
+  url: https://argocd.mdvorak.org
 kind: ConfigMap
 metadata:
   annotations: {}
