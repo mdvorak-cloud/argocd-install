@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: argocd-server-ingress
+spec:
+  rules:
+    - host: argocd.mdvorak.org
+      http:
+        paths:
+          - backend:
+              serviceName: argocd-server
+              servicePort: http
