@@ -12,8 +12,9 @@ configMapGenerator:
   - name: argocd-cm
     behavior: merge
     literals:
-      - admin.enabled=false
       - url=https://argocd.mdvorak.org
+      - admin.enabled=false
+      - statusbadge.enabled=true
     files:
       - repository.credentials=repository-credentials.yaml
       - dex.config=dex-config.yaml
