@@ -2167,11 +2167,11 @@ metadata:
 apiVersion: v1
 data:
   policy.csv: |
-    p, role:argocd-users, projects, get, *, allow
-    p, role:argocd-users, applications, get, */*, allow
-    p, role:argocd-users, applications, sync, */*, allow
-    p, role:argocd-users, applications, delete, default/*, allow
-    g, mdvorak-cloud:argocd-users, role:argocd-users
+    p, role:operators, projects, get, *, allow
+    p, role:operators, applications, get, */*, allow
+    p, role:operators, applications, sync, */*, allow
+    p, role:operators, applications, delete, default/*, allow
+    g, mdvorak-cloud:operators, role:operators
   policy.default: role:readonly
 kind: ConfigMap
 metadata:
