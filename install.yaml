@@ -2589,7 +2589,6 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: "0"
     traefik.ingress.kubernetes.io/redirect-entry-point: https
   name: argocd-server-ingress
   namespace: argocd
