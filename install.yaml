@@ -2170,7 +2170,7 @@ data:
     p, role:argocd-users, projects, get, *, allow
     p, role:argocd-users, applications, get, */*, allow
     p, role:argocd-users, applications, sync, */*, allow
-    p, role:argocd-users, applications, delete, */pods, allow
+    p, role:argocd-users, applications, delete, */*, allow
     g, mdvorak-cloud:argocd-users, role:argocd-users
   policy.default: role:readonly
 kind: ConfigMap
