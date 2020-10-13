@@ -4,7 +4,6 @@ metadata:
   name: argocd-server-ingress
   annotations:
     traefik.ingress.kubernetes.io/redirect-entry-point: https
-    argocd.argoproj.io/sync-wave: "0"
 spec:
   rules:
     - host: argocd.mdvorak.org
