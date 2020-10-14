@@ -2589,7 +2589,8 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
   name: argocd-server-ingress
   namespace: argocd
 spec:
