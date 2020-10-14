@@ -3,10 +3,10 @@ kind: Ingress
 metadata:
   name: &name argocd-server-ingress
   annotations:
-    kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx
   rules:
     - host: &host argocd.mdvorak.org
       http:
