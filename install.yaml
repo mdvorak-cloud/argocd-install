@@ -2590,7 +2590,8 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
+    traefik.ingress.kubernetes.io/router.entrypoints: websecure
+    traefik.ingress.kubernetes.io/router.middlewares: redirect-http@kuberntes-crd
   name: argocd-server-ingress
   namespace: argocd
 spec:
