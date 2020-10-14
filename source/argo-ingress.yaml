@@ -3,7 +3,8 @@ kind: Ingress
 metadata:
   name: argocd-server-ingress
   annotations:
-    traefik.ingress.kubernetes.io/redirect-entry-point: https
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: web,websecure
 spec:
   rules:
     - host: argocd.mdvorak.org
