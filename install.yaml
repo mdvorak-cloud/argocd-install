@@ -2394,7 +2394,7 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: 512Mi
+            memory: 1024Mi
       serviceAccountName: argocd-application-controller
 ---
 apiVersion: apps/v1
