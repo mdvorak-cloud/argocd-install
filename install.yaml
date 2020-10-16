@@ -2391,6 +2391,10 @@ spec:
             port: 8082
           initialDelaySeconds: 5
           periodSeconds: 10
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
       serviceAccountName: argocd-application-controller
 ---
 apiVersion: apps/v1
