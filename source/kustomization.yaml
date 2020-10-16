@@ -42,6 +42,12 @@ patchesJson6902:
       - op: add
         path: /spec/template/spec/containers/0/command/-
         value: "300"
+      - op: add
+        path: /spec/template/spec/containers/0/resources
+        value:
+          limits:
+            cpu: "1"
+            memory: 512Mi
   - target:
       group: apps
       version: v1
