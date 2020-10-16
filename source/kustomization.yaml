@@ -47,7 +47,7 @@ patchesJson6902:
         value:
           limits:
             cpu: "1"
-            memory: 512Mi
+            memory: 1024Mi
   - target:
       group: apps
       version: v1
