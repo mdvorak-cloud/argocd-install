@@ -36,12 +36,16 @@ patchesJson6902:
       kind: Deployment
       name: argocd-application-controller
     patch: |
-      - op: add
-        path: /spec/template/spec/containers/0/command/-
-        value: "--app-resync"
-      - op: add
-        path: /spec/template/spec/containers/0/command/-
-        value: "300"
+      - op: replace
+        path: /spec/template/spec/containers/0/command
+        value:
+          - argocd-application-controller
+          - --status-processors
+          - "4"
+          - --operation-processors
+          - "2"
+          - --app-resync
+          - "300"
       - op: add
         path: /spec/template/spec/containers/0/resources
         value:
