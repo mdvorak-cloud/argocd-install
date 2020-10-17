@@ -46,7 +46,7 @@ patchesJson6902:
           - "1"
           - --app-resync
           - "300"
-      - op: add
+      - op: replace
         path: /spec/template/spec/containers/0/resources
         value:
           requests:
