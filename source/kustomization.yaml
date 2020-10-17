@@ -41,9 +41,9 @@ patchesJson6902:
         value:
           - argocd-application-controller
           - --status-processors
-          - "4"
+          - "1"
           - --operation-processors
-          - "2"
+          - "1"
           - --app-resync
           - "300"
       - op: add
