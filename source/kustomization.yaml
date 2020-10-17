@@ -50,7 +50,7 @@ patchesJson6902:
         path: /spec/template/spec/containers/0/resources
         value:
           limits:
-            cpu: "1"
+            cpu: "1500m"
             memory: 1024Mi
   - target:
       group: apps
