@@ -50,7 +50,7 @@ patchesJson6902:
           - "300"
       - op: replace
         path: /spec/template/spec/priorityClassName
-        value: argocd-priority
+        value: system-cluster-critical
       - op: replace
         path: /spec/template/spec/containers/0/resources
         value:
@@ -72,7 +72,7 @@ patchesJson6902:
         value: "--insecure"
       - op: replace
         path: /spec/template/spec/priorityClassName
-        value: argocd-priority
+        value: system-cluster-critical
   # argocd-repo-server
   - target:
       group: apps
@@ -82,7 +82,7 @@ patchesJson6902:
     patch: |
       - op: replace
         path: /spec/template/spec/priorityClassName
-        value: argocd-priority
+        value: system-cluster-critical
   # argocd-dex-server
   - target:
       group: apps
@@ -92,7 +92,7 @@ patchesJson6902:
     patch: |
       - op: replace
         path: /spec/template/spec/priorityClassName
-        value: argocd-priority
+        value: system-cluster-critical
   # argocd-redis
   - target:
       group: apps
@@ -102,4 +102,4 @@ patchesJson6902:
     patch: |
       - op: replace
         path: /spec/template/spec/priorityClassName
-        value: argocd-priority
+        value: system-cluster-critical
