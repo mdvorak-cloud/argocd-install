@@ -2345,6 +2345,13 @@ spec:
   selector:
     app.kubernetes.io/name: argocd-server
 ---
+apiVersion: scheduling.k8s.io/v1
+globalDefault: false
+kind: PriorityClass
+metadata:
+  name: argocd-priority
+value: 1000000
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -2398,6 +2405,7 @@ spec:
           requests:
             cpu: 200m
             memory: 512Mi
+      priorityClassName: argocd-priority
       serviceAccountName: argocd-application-controller
 ---
 apiVersion: apps/v1
@@ -2444,6 +2452,7 @@ spec:
         volumeMounts:
         - mountPath: /shared
           name: static-files
+      priorityClassName: argocd-priority
       serviceAccountName: argocd-dex-server
       volumes:
       - emptyDir: {}
@@ -2478,6 +2487,7 @@ spec:
         name: redis
         ports:
         - containerPort: 6379
+      priorityClassName: argocd-priority
       securityContext:
         fsGroup: 1000
         runAsGroup: 1000
@@ -2529,6 +2539,7 @@ spec:
           name: gpg-keys
         - mountPath: /app/config/gpg/keys
           name: gpg-keyring
+      priorityClassName: argocd-priority
       volumes:
       - configMap:
           name: argocd-ssh-known-hosts-cm
@@ -2583,6 +2594,7 @@ spec:
           name: ssh-known-hosts
         - mountPath: /app/config/tls
           name: tls-certs
+      priorityClassName: argocd-priority
       serviceAccountName: argocd-server
       volumes:
       - emptyDir: {}
