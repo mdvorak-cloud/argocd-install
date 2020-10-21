@@ -2603,8 +2603,9 @@ apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  labels:
+    app.kubernetes.io/name: argocd-server-ingress
   name: argocd-server-ingress
   namespace: argocd
 spec:
@@ -2619,4 +2620,3 @@ spec:
   tls:
   - hosts:
     - argocd.mdvorak.org
-    secretName: argocd-server-ingress
