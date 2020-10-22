@@ -29,7 +29,7 @@ configMapGenerator:
 patchesStrategicMerge:
   - skip-argocd-secret.yaml
 
-patchesJson6902:
+patches:
   # argocd-application-controller
   - target:
       group: apps
@@ -47,9 +47,6 @@ patchesJson6902:
           - "1"
           - --app-resync
           - "300"
-      - op: replace
-        path: /spec/template/spec/priorityClassName
-        value: system-cluster-critical
       - op: replace
         path: /spec/template/spec/containers/0/resources
         value:
@@ -69,35 +66,11 @@ patchesJson6902:
       - op: add
         path: /spec/template/spec/containers/0/command/-
         value: "--insecure"
-      - op: replace
-        path: /spec/template/spec/priorityClassName
-        value: system-cluster-critical
-  # argocd-repo-server
+  # priorityClassName
   - target:
       group: apps
       version: v1
       kind: Deployment
-      name: argocd-repo-server
-    patch: |
-      - op: replace
-        path: /spec/template/spec/priorityClassName
-        value: system-cluster-critical
-  # argocd-dex-server
-  - target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: argocd-dex-server
-    patch: |
-      - op: replace
-        path: /spec/template/spec/priorityClassName
-        value: system-cluster-critical
-  # argocd-redis
-  - target:
-      group: apps
-      version: v1
-      kind: Deployment
-      name: argocd-redis
     patch: |
       - op: replace
         path: /spec/template/spec/priorityClassName
