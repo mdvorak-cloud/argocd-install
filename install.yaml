@@ -2369,9 +2369,9 @@ spec:
       - command:
         - argocd-application-controller
         - --status-processors
-        - "1"
+        - "2"
         - --operation-processors
-        - "1"
+        - "2"
         - --app-resync
         - "300"
         image: argoproj/argocd:v1.7.8
