@@ -42,9 +42,9 @@ patches:
         value:
           - argocd-application-controller
           - --status-processors
-          - "1"
+          - "2"
           - --operation-processors
-          - "1"
+          - "2"
           - --app-resync
           - "300"
       - op: replace
