@@ -1,4 +1,4 @@
-name: ArgoCD Version Check
+name: ArgoCD Dependabot
 on:
   push:
     branches: [ main ]
