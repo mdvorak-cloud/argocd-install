@@ -2,6 +2,10 @@ name: Render
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - README.md
+      - .github/dependabot.yaml
+      - .github/workflow/version.yaml
 
 jobs:
   render:
@@ -17,7 +21,7 @@ jobs:
       - name: Render install.yaml
         run: |
           kustomize build source/ > install.yaml
-          
+
       - uses: stefanzweifel/git-auto-commit-action@v4.7.2
         with:
           commit_message: "[bot] rendered install.yaml"
