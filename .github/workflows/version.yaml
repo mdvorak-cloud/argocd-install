@@ -42,6 +42,7 @@ jobs:
         with:
           title: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
           commit-message: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
+          body: Bumps argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}.
           branch: dependabot/kustomize/argocd
           delete-branch: true
           labels: dependencies,kustomize
