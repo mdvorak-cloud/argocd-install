@@ -1,5 +1,7 @@
 name: ArgoCD Version Check
 on:
+  push:
+    branch: [ main ]
   schedule:
     - cron: "0 0 10 ? * MON *" # every monday, 10 am
 
