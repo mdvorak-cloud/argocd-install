@@ -12,13 +12,13 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Kustomize
-        uses: imranismail/setup-kustomize@v1
+        uses: imranismail/setup-kustomize@v1.5.2
 
       - name: Render install.yaml
         run: |
           kustomize build source/ > install.yaml
           
-      - uses: stefanzweifel/git-auto-commit-action@v4.6.0
+      - uses: stefanzweifel/git-auto-commit-action@v4.7.2
         with:
           commit_message: "[bot] rendered install.yaml"
           file_pattern: install.yaml
