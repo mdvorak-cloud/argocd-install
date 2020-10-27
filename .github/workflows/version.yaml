@@ -40,6 +40,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3.4.1
         with:
+          title: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
           commit-message: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
           branch: dependabot/kustomize/argocd
           delete-branch: true
