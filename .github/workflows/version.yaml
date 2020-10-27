@@ -3,7 +3,7 @@ on:
   push:
     branches: [ main ]
   schedule:
-    - cron: "0 0 10 ? * MON *" # every monday, 10 am
+    cron: "0 0 10 ? * MON *" # every monday, 10 am
 
 jobs:
   check:
