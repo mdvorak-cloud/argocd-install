@@ -1,9 +1,7 @@
 name: ArgoCD Dependabot
 on:
-  push:
-    branches: [ main ]
   schedule:
-    - cron: "0 10 ? * 1" # every monday, 10 am
+    - cron: "0 10 * * *" # every day, 10 am UTC
 
 jobs:
   check:
