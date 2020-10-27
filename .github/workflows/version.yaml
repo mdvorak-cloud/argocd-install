@@ -1,0 +1,35 @@
+name: ArgoCD Version Check
+on:
+  schedule:
+    - cron: "0 0 10 ? * MON *" # every monday, 10 am
+
+jobs:
+  check:
+    name: Check
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Get latest release
+        uses: pozetroninc/github-action-get-latest-release@v0.5.0
+        id: latest
+        with:
+          owner: argoproj
+          repo: argo-cd
+          excludes: prerelease,draft
+
+      - name: Get current version
+        id: current
+        run: |
+          echo "::set-output name=version::$(sed -n 's!.*/argo-cd/\(v[^/]*\)/.*!\1!p' source/kustomization.yaml | head -n1)"
+
+      - name: Update version to latest
+        run: |
+          sed -i 's!\(/argo-cd/\)v[^/]*!\1${{ steps.latest.outputs.release }}!' source/kustomization.yaml
+
+      - name: Git Auto Commit
+        uses: stefanzweifel/git-auto-commit-action@v4.7.2
+        with:
+          branch: dependabot/kustomize/argocd
+          commit_message: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
