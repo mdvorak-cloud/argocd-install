@@ -5,7 +5,7 @@ namespace: argocd
 
 resources:
   # https://github.com/argoproj/argo-cd
-  - https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.9/manifests/install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v1.7.10/manifests/install.yaml
   - argo-ingress.yaml
 
 # Custom config
