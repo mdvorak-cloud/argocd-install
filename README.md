@@ -1,4 +1,4 @@
-![pnas1](https://argocd.mdvorak.org/api/badge?name=argocd&revision=true "ArgoCD (pnas1)")
+![Render](https://github.com/mdvorak-cloud/argocd-install/workflows/Render/badge.svg) ![pnas1](https://argocd.mdvorak.org/api/badge?name=argocd&revision=true "ArgoCD (pnas1)")
 
 # argocd
 
