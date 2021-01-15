@@ -2248,7 +2248,7 @@ subjects:
 ---
 apiVersion: v1
 data:
-  admin.enabled: false
+  admin.enabled: "false"
   dex.config: |
     connectors:
       - type: github
@@ -2266,7 +2266,7 @@ data:
       sshPrivateKeySecret:
         name: apps-git
         key: ssh-privatekey
-  statusbadge.enabled: true
+  statusbadge.enabled: "true"
   url: https://argocd.mdvorak.org
 kind: ConfigMap
 metadata:
