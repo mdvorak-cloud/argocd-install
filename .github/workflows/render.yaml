@@ -17,8 +17,6 @@ jobs:
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1.5.2
-        with:
-          kustomize-version: "3.8.x"
 
       - name: Render install.yaml
         run: |
