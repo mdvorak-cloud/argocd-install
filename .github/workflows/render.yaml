@@ -18,11 +18,21 @@ jobs:
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1.5.3
 
+      - name: Get current version
+        id: current
+        run: |
+          echo "::set-output name=version::$(sed -n 's!.*/argo-cd/\(v[^/]*\)/.*!\1!p' source/kustomization.yaml | head -n1)"
+
       - name: Render install.yaml
         run: |
           kustomize build source/ > install.yaml
 
-      - uses: stefanzweifel/git-auto-commit-action@v4.8.0
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3.8.0
         with:
-          commit_message: "[bot] rendered install.yaml"
-          file_pattern: install.yaml
+          title: "Render argoproj/argo-cd ${{ steps.current.outputs.version }}"
+          commit-message: "[bot] rendered install.yaml for ${{ steps.current.outputs.version }}"
+          body: "Renders argoproj/argo-cd ${{ steps.current.outputs.version }} to install.yaml"
+          branch: render/argocd
+          delete-branch: true
+          labels: kustomize,render
