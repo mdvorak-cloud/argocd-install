@@ -32,7 +32,7 @@ jobs:
         with:
           title: "Render argoproj/argo-cd ${{ steps.current.outputs.version }}"
           commit-message: "[bot] rendered install.yaml for ${{ steps.current.outputs.version }}"
-          body: "Renders argoproj/argo-cd ${{ steps.current.outputs.version }} to install.yaml"
+          body: "Render of install.yaml"
           branch: render/argocd
           delete-branch: true
           labels: kustomize,render
