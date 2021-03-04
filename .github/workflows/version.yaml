@@ -2,6 +2,7 @@ name: ArgoCD Dependabot
 on:
   schedule:
     - cron: "0 10 * * *" # every day, 10 am UTC
+  workflow_dispatch:
 
 jobs:
   check:
