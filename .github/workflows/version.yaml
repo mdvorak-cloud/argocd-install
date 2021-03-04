@@ -39,11 +39,11 @@ jobs:
         uses: peter-evans/create-pull-request@v3.8.2
         with:
           title: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
-          commit-message: |
-            Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
+          commit-message: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
+          body: |
+            Bumps argoproj/argo-cd to latest version.
             
-            https://github.com/argoproj/argo-cd/releases
-          body: Bumps argoproj/argo-cd to latest version.
+            https://github.com/argoproj/argo-cd/releases/tag/${{ steps.latest.outputs.release }}
           branch: dependabot/kustomize/argocd
           delete-branch: true
           labels: dependencies,kustomize
