@@ -6,6 +6,7 @@ on:
       - README.md
       - .github/dependabot.yaml
       - .github/workflow/version.yaml
+  workflow_dispatch:
 
 jobs:
   render:
