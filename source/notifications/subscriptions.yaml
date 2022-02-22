@@ -1,4 +1,4 @@
 - recipients:
-    - github: ""
+    - "github:"
   triggers:
     - sync-operation-change
