@@ -16729,12 +16729,11 @@ data:
     message: |
       Application {{.app.metadata.name}} state changed to {{.app.status.operationState.phase}}.
     github:
-      status: 
-        state: >-
-          {{if eq .app.status.operationState.phase "Running"}}pending{{end}}
-          {{if eq .app.status.operationState.phase "Succeeded"}}success{{end}}
-          {{if eq .app.status.operationState.phase "Error"}}error{{end}}
-          {{if eq .app.status.operationState.phase "Failed"}}error{{end}}
+      status:
+        {{if eq .app.status.operationState.phase "Running"}}state: pending{{end}}
+        {{if eq .app.status.operationState.phase "Succeeded"}}state: success{{end}}
+        {{if eq .app.status.operationState.phase "Error"}}state: error{{end}}
+        {{if eq .app.status.operationState.phase "Failed"}}state: error{{end}}
         label: "continuous-delivery/{{.app.metadata.name}}"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
   trigger.sync-operation-change: |
