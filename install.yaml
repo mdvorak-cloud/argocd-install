@@ -16725,11 +16725,6 @@ data:
     appID: 174514
     installationID: 23506010
     privateKey: $github-privateKey
-  subscriptions: |
-    #- recipients:
-    #    - "github:"
-    #  triggers:
-    #    - sync-operation-change
   template.github-commit-status: |
     message: |
       Application {{.app.metadata.name}} state changed to {{.app.status.operationState.phase}}.
