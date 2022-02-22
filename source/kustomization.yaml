@@ -19,6 +19,7 @@ configMapGenerator:
     files:
       - repository.credentials=repository-credentials.yaml
       - dex.config=dex-config.yaml
+      - resource.customizations.health.argoproj.io_Application=customizations/resource.customizations.health.argoproj.io_Application.lua
 
   - name: argocd-rbac-cm
     behavior: merge
