@@ -1,5 +1,5 @@
 message: |
-  Application {{.app.metadata.name}} health changed to {{.app.status.health.status}}.
+  {{.app.metadata.name}} is {{.app.status.health.status}}.
 github:
   status:
     state: "\
@@ -7,5 +7,5 @@ github:
       {{if eq .app.status.health.status \"Suspended\"}}pending{{end}}\
       {{if eq .app.status.health.status \"Healthy\"}}success{{end}}\
       {{if eq .app.status.health.status \"Degraded\"}}error{{end}}"
-    label: "continuous-delivery/{{.app.metadata.name}}"
+    label: "cd/{{.app.metadata.name}}"
     targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
