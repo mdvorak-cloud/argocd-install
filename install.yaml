@@ -16739,8 +16739,7 @@ data:
     installationID: 23506010
     privateKey: $github-privateKey
   template.github-commit-status: |
-    message: |
-      {{.app.metadata.name}} is {{.app.status.health.status}}.
+    message: {{.app.status.health.status}}
     github:
       status:
         state: "\
