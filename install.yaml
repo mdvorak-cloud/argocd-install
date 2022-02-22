@@ -16730,7 +16730,11 @@ data:
       Application {{.app.metadata.name}} state changed to {{.app.status.operationState.phase}}.
     github:
       status: 
-        state: success
+        state: "\
+          {{if eq .app.status.operationState.phase \"Running\"}}pending{{end}}\
+          {{if eq .app.status.operationState.phase \"Succeeded\"}}success{{end}}\
+          {{if eq .app.status.operationState.phase \"Error\"}}error{{end}}\
+          {{if eq .app.status.operationState.phase \"Failed\"}}error{{end}}"
         label: "continuous-delivery/{{.app.metadata.name}}"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
   trigger.sync-operation-change: |
