@@ -16718,9 +16718,13 @@ metadata:
   namespace: argocd
 ---
 apiVersion: v1
+data:
+  service.github: |
+    appID: 174514
+    installationID: 23506010
+    privateKey: $github-privateKey
 kind: ConfigMap
 metadata:
-  creationTimestamp: null
   name: argocd-notifications-cm
   namespace: argocd
 ---
@@ -16783,6 +16787,7 @@ kind: Secret
 metadata:
   annotations:
     argocd.argoproj.io/hook: Skip
+    sealedsecrets.bitnami.com/managed: "true"
   labels:
     app.kubernetes.io/name: argocd-secret
     app.kubernetes.io/part-of: argocd
