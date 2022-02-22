@@ -1,3 +1,5 @@
+message: |
+  Application {{.app.metadata.name}} state changed to {{.app.status.operationState.phase}}.
 github:
   status:
     state: >-
