@@ -16725,7 +16725,7 @@ data:
     privateKey: $github-privateKey
   subscriptions: |
     - recipients:
-        - github: ""
+        - "github:"
       triggers:
         - sync-operation-change
   trigger.sync-operation-change: |
