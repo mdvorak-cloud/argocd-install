@@ -18,6 +18,8 @@ jobs:
 
       - name: Setup Kustomize
         uses: imranismail/setup-kustomize@v1.6.0
+        with:
+          kustomize-version: v4.5.2
 
       - name: Get current version
         id: current
