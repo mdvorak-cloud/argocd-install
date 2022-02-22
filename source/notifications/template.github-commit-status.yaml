@@ -1,5 +1,4 @@
-message: |
-  {{.app.metadata.name}} is {{.app.status.health.status}}.
+message: {{.app.status.health.status}}
 github:
   status:
     state: "\
