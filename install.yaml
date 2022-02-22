@@ -16740,14 +16740,14 @@ data:
     privateKey: $github-privateKey
   template.github-commit-status: |
     message: |
-      Application {{.app.metadata.name}} state changed to {{.app.status.operationState.phase}}.
+      Application {{.app.metadata.name}} health changed to {{.app.status.health.status}}.
     github:
       status:
         state: "\
-          {{if eq .app.status.operationState.phase \"Running\"}}pending{{end}}\
-          {{if eq .app.status.operationState.phase \"Succeeded\"}}success{{end}}\
-          {{if eq .app.status.operationState.phase \"Error\"}}error{{end}}\
-          {{if eq .app.status.operationState.phase \"Failed\"}}error{{end}}"
+          {{if eq .app.status.health.status \"Progressing\"}}pending{{end}}\
+          {{if eq .app.status.health.status \"Suspended\"}}pending{{end}}\
+          {{if eq .app.status.health.status \"Healthy\"}}success{{end}}\
+          {{if eq .app.status.health.status \"Degraded\"}}error{{end}}"
         label: "continuous-delivery/{{.app.metadata.name}}"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
   trigger.sync-operation-change: |
