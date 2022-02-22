@@ -34,7 +34,6 @@ configMapGenerator:
       - trigger.sync-operation-change=notifications/trigger.sync-operation-change.yaml
       - template.github-commit-status=notifications/template.github-commit-status.yaml
       - service.github=notifications/service.github.yaml
-      - subscriptions=notifications/subscriptions.yaml
 
 patchesStrategicMerge:
   - skip-argocd-secret.yaml

@@ -1,4 +1,0 @@
-#- recipients:
-#    - "github:"
-#  triggers:
-#    - sync-operation-change
