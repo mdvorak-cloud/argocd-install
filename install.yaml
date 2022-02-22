@@ -16728,36 +16728,25 @@ data:
         - "github:"
       triggers:
         - sync-operation-change
-  template.app-deployed: |
+  template.github-commit-status: |
     message: |
-      Application {{.app.metadata.name}} is now running new version of deployments manifests.
+      Application {{.app.metadata.name}} state changed to {{.app.status.operationState.phase}}.
     github:
       status:
-        state: success
+        state: >-
+          {{if eq .app.status.operationState.phase "Running"}}pending{{end}}
+          {{if eq .app.status.operationState.phase "Succeeded"}}success{{end}}
+          {{if eq .app.status.operationState.phase "Error"}}error{{end}}
+          {{if eq .app.status.operationState.phase "Failed"}}error{{end}},
         label: "continuous-delivery/{{.app.metadata.name}}"
         targetURL: "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}?operation=true"
-  template.github-commit-status: |
-    webhook:
-      github:
-        method: POST
-        path: /repos/{{call .repo.FullNameByRepoURL .app.spec.source.repoURL}}/statuses/{{.app.status.operationState.operation.sync.revision}}
-        body: |
-          {
-            {{if eq .app.status.operationState.phase "Running"}} "state": "pending"{{end}}
-            {{if eq .app.status.operationState.phase "Succeeded"}} "state": "success"{{end}}
-            {{if eq .app.status.operationState.phase "Error"}} "state": "error"{{end}}
-            {{if eq .app.status.operationState.phase "Failed"}} "state": "error"{{end}},
-            "description": "ArgoCD",
-            "target_url": "{{.context.argocdUrl}}/applications/{{.app.metadata.name}}",
-            "context": "continuous-delivery/{{.app.metadata.name}}"
-          }
   trigger.sync-operation-change: |
     - when: app.status.operationState.phase in ['Succeeded']
       send: [ github-commit-status ]
     - when: app.status.operationState.phase in ['Running']
       send: [ github-commit-status ]
     - when: app.status.operationState.phase in ['Error', 'Failed']
-      send: [ app-sync-failed, github-commit-status ]
+      send: [ github-commit-status ]
 kind: ConfigMap
 metadata:
   name: argocd-notifications-cm
