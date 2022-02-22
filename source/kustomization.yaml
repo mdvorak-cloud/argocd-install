@@ -27,8 +27,14 @@ configMapGenerator:
     files:
       - policy.csv
 
+  - name: argocd-notifications-cm
+    behavior: merge
+    files:
+      - service.github=service-github.yaml
+
 patchesStrategicMerge:
   - skip-argocd-secret.yaml
+  - argocd-notifications-secret.yaml
 
 patches:
   # argocd-application-controller
