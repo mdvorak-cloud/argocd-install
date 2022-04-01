@@ -9574,6 +9574,7 @@ subjects:
 apiVersion: v1
 data:
   admin.enabled: "false"
+  application.resourceTrackingMethod: annotation
   dex.config: |
     connectors:
       - type: github
