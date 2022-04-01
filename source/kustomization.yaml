@@ -16,6 +16,7 @@ configMapGenerator:
       - url=https://argocd.mdvorak.org
       - admin.enabled=false
       - statusbadge.enabled=true
+      - application.resourceTrackingMethod=annotation
     files:
       - repository.credentials=repository-credentials.yaml
       - dex.config=dex-config.yaml
