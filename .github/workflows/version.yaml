@@ -39,8 +39,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
-          commit-message: Bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}
+          title: "fix(deps): bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}"
+          commit-message: "fix(deps): bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}"
           body: |
             Bumps argoproj/argo-cd to latest version.
             
