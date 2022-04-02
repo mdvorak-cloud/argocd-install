@@ -1,5 +1,6 @@
 p, role:operators, projects, get, *, allow
 p, role:operators, applications, get, */*, allow
 p, role:operators, applications, sync, */*, allow
+p, role:operators, applications, restart, */*, allow
 p, role:operators, applications, delete, default/*, allow
 g, mdvorak-cloud:operators, role:operators
