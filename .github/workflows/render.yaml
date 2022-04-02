@@ -33,8 +33,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
         with:
-          title: "Render argoproj/argo-cd ${{ steps.current.outputs.version }}"
-          commit-message: "[bot] rendered install.yaml for ${{ steps.current.outputs.version }}"
+          title: "chore(install): render argoproj/argo-cd ${{ steps.current.outputs.version }}"
+          commit-message: "chore(install): rendered install.yaml for ${{ steps.current.outputs.version }}"
           body: "Render of install.yaml"
           branch: render/argocd
           delete-branch: true
