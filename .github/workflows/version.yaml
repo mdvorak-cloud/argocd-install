@@ -16,7 +16,7 @@ jobs:
         uses: imranismail/setup-kustomize@v1.7.0
 
       - name: Get latest release
-        uses: pozetroninc/github-action-get-latest-release@v0.6.0
+        uses: pozetroninc/github-action-get-latest-release@v0.7.0
         id: latest
         with:
           owner: argoproj
