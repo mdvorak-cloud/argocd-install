@@ -37,7 +37,7 @@ jobs:
           kustomize build source/ > install.yaml
 
       - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@v5
         with:
           title: "fix(deps): bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}"
           commit-message: "fix(deps): bump argoproj/argo-cd from ${{ steps.current.outputs.version }} to ${{ steps.latest.outputs.release }}"
